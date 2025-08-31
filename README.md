@@ -164,6 +164,24 @@ sudo apt install p7zip-full p7zip-rar
 
 ## Lista de Ícones
 
-- [Seet Folders](https://www.gnome-look.org/p/1284047)
+- [Sweet Folders](https://www.gnome-look.org/p/1284047)
 - [Flat Remix ICON Themes](https://www.gnome-look.org/p/1012430)
 - [Candy Icons](https://www.gnome-look.org/p/1305251)
+
+## MEU SETUP PERSONALIZADO
+
+Baixar os arquivos da lista de:
+> Temas: Midnight-Red, Kripton-v40
+> Ícones: Flat-Remix-Red-Light-darj-Panel
+
+No Tweaks ir em:
+> Aplications > Midnight-Red
+> Icons > Flat-Remix-Red-Light-dark-Panel
+> Shell > Midnight-Red
+
+Caso alguma interface não tenha sido aplicado, devemos selecionar "Aplications" selecionar o "Kripton-40"
+depois em em "Shell" selecionar "Kripton-40". Foi para isso que baixamos o Kripton para corrigir um problema
+de aplicação da personalização dos temas que queremos usar.
+
+Agora é só mudar "Aplications", "Icons" e "Shell" para o Midnight-Red e Flat-Remix-Red-Light-dark-Panel
+respectivamente
