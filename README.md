@@ -164,4 +164,6 @@ sudo apt install p7zip-full p7zip-rar
 
 ## Lista de Ícones
 
--
+- [Seet Folders](https://www.gnome-look.org/p/1284047)
+- [Flat Remix ICON Themes](https://www.gnome-look.org/p/1012430)
+- [Candy Icons](https://www.gnome-look.org/p/1305251)
