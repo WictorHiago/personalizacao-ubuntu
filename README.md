@@ -2,6 +2,14 @@
 
 Bem-vindo! Este guia reúne dicas e comandos para personalizar seu Ubuntu, instalar ferramentas essenciais e configurar seu ambiente de desenvolvimento.
 
+screenshot
+![shot1](image1.png)
+![shot2](image2.png)
+![shot3](image3.png)
+![shot4](image4.png)
+
+
+
 ## Índice
 
 - [Temas GTK3/4](#temas-gtk34)
@@ -195,12 +203,20 @@ Para instalar themas personalizados de terminal zsh necessitamos
 de fontes personalizadas que sejam compatíveis com
 diversos caracteres especiais como emojis no terminal.
 
+Fontes recomendadas são *HACK FONT e FIRACODE*
+
 Você pode baixar em:
 - [NERD FONTS](https://www.nerdfonts.com/)
 - [NERD FONTS DOWNLOADS](https://www.nerdfonts.com/font-downloads)
 
 
-### INSTALAÇÃO ZSH
+### INSTALAÇÃO ZSH + OH-MY-ZSH + "EENDROROY/ALIEN THEME"
+screenshot:
+![Alien Theme](eendroroy-alien-theme.png)
+
+EENDROROY/ALIEN THEME
+
+
 sudo apt install zsh
 
 Depois instalar *OH MY ZSH*
@@ -233,16 +249,65 @@ if ! type zplug >/dev/null; then
     fi
     autoload -Uz zplug
     zplug "zplug/zplug", from:github, as:plugin
+    # adicione themes aqui quando possivel:
+    zplug "eendroroy/alien"
     if ! zplug check --verbose; then
         printf "Installing initial plugins...\n"
         zplug install
     fi
     zplug load
 fi
+
+# Personaliza cores do "eendroroy/alien"
+# export ALIEN_THEME="blue"
+export ALIEN_THEME="red"
+
+# Carrega os plugins
+zplug load
 ```
+
 Agora salve [ctrl + o] depois [ctrl + x]
 
 Depois execute:
+
+```bash
+source ~/.zshrc
+```
+
+**Instalação Theme HEADLINE**
+- [HEADLINE](https://github.com/Moarram/headline)
+
+screenshot
+![Alien Theme](headline-theme.png)
+
+HEADLINE
+
+Clonar no diretório custom de temas do Oh My Zsh
+
+```bash
+git clone https://github.com/moarram/headline.git $ZSH_CUSTOM/themes/headline
+```
+
+Opcional: criar um symlink
+
+```
+ln -s $ZSH_CUSTOM/themes/headline/headline.zsh-theme $ZSH_CUSTOM/themes/headline.zsh-theme
+```
+
+Para instalar esse tema iremos usar o próprio oh-my-zsh para carrega-lo
+abra o arquivo:
+
+```bash
+sudo nano ~/.zshrc
+```
+
+Adicione as seguintes linhas:
+
+```bash
+ZSH_THEME="headline"
+```
+
+Execute o comando, fecha e abra o terminal novamente para aplicar a alteração
 
 ```bash
 source ~/.zshrc
