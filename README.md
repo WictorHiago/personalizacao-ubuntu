@@ -170,9 +170,12 @@ sudo apt install p7zip-full p7zip-rar
 
 ## MEU SETUP PERSONALIZADO
 
+- [Extension Logo Menu](https://extensions.gnome.org/extension/4451/logo-menu)
+Serve para personalizar logo do menu do Ubuntu
+
 Baixar os arquivos da lista de:
 > Temas: Midnight-Red, Kripton-v40
-> Ícones: Flat-Remix-Red-Light-darj-Panel
+> Ícones: Flat-Remix-Red-Light-dark-Panel
 
 No Tweaks ir em:
 > Aplications > Midnight-Red
@@ -180,8 +183,67 @@ No Tweaks ir em:
 > Shell > Midnight-Red
 
 Caso alguma interface não tenha sido aplicado, devemos selecionar "Aplications" selecionar o "Kripton-40"
-depois em em "Shell" selecionar "Kripton-40". Foi para isso que baixamos o Kripton para corrigir um problema
+depois em "Shell" selecionar "Kripton-40". Foi para isso que baixamos o Kripton para corrigir um problema
 de aplicação da personalização dos temas que queremos usar.
 
 Agora é só mudar "Aplications", "Icons" e "Shell" para o Midnight-Red e Flat-Remix-Red-Light-dark-Panel
 respectivamente
+
+### FONTE CUSTOMIZADA
+
+Para instalar themas personalizados de terminal zsh necessitamos
+de fontes personalizadas que sejam compatíveis com
+diversos caracteres especiais como emojis no terminal.
+
+Você pode baixar em:
+- [NERD FONTS](https://www.nerdfonts.com/)
+- [NERD FONTS DOWNLOADS](https://www.nerdfonts.com/font-downloads)
+
+
+### INSTALAÇÃO ZSH
+sudo apt install zsh
+
+Depois instalar *OH MY ZSH*
+
+- [OH-MY-ZSH](https://ohmyz.sh/)
+
+```bash
+#Executar:
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Instalação do Plug Manager
+- [ZPLUG](https://github.com/zplug/zplug)
+
+Editar arquivo .zshrc
+
+```bash
+sudo nano ~/.zshrc
+```
+
+No final do arquivo adicionar:
+
+```bash
+# Zplug configuration
+export FPATH="$HOME/.zplug:$FPATH"
+
+if ! type zplug >/dev/null; then
+    if [[ ! -d "$HOME/.zplug" ]]; then
+        git clone https://github.com/zplug/zplug ~/.zplug
+    fi
+    autoload -Uz zplug
+    zplug "zplug/zplug", from:github, as:plugin
+    if ! zplug check --verbose; then
+        printf "Installing initial plugins...\n"
+        zplug install
+    fi
+    zplug load
+fi
+```
+Agora salve [ctrl + o] depois [ctrl + x]
+
+Depois execute:
+
+```bash
+source ~/.zshrc
+```
