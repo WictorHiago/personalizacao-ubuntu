@@ -312,3 +312,99 @@ Execute o comando, fecha e abra o terminal novamente para aplicar a alteração
 ```bash
 source ~/.zshrc
 ```
+
+### NEOVIN PERSONALIZADO
+
+screenshot
+
+![shot1](neovim-default.png)
+![shot1](neovim-default.png)
+
+
+Primeiro precisamos nos certificar de ter instalado o python3
+
+```bash
+python3 --version
+```
+
+Deverá ver algo como: *$ Python 3.10.12*
+
+
+Execute os comandos linha por blocos:
+
+```bash
+# Bloco 1 baixa e instala a versão mais atual do neovim e aplica permissão necessária
+
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+./nvim-linux-x86_64.appimage
+
+# Bloco 2 expõe o neovim globalmente
+
+mkdir -p /opt/nvim
+mv nvim-linux-x86_64.appimage /opt/nvim/nvim
+
+# Bloco 3 cria um link simbólico
+sudo ln -s /opt/nvim/nvim /usr/local/bin/nvim
+
+# Bloco 4 abrir neovion
+nvim
+```
+
+Template LazyVim Instalação
+- [LazyVim](https://www.lazyvim.org/installation)
+
+screeshot
+
+![shot1](lazyvim.png)
+
+![shot2](lazyvim2.png)
+
+### INSTALAÇÃO GO LANG
+
+Remover instalação
+
+```bash
+sudo rm -rf /usr/local/go
+```
+
+Baixar arquivo de instalação .tar
+- [All Releases Downloads](https://go.dev/dl/)
+
+Descompactar arquivo
+
+```bash
+sudo tar -C /usr/local -xzf ~/Downloads/go1.25.1.linux-amd64.tar.gz
+```
+
+Verificar que arquivos existem
+
+```bash
+ls -la /usr/local/go/bin
+# deve listar: go  gofmt
+```
+
+Adicionar GO ao PATH
+
+```bash
+grep -qxF 'export PATH=$PATH:/usr/local/go/bin' ~/.zshrc || echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+```
+
+Se quiser usar um GOPATH (opcional, hoje em dia modules são padrão)
+
+```bash
+grep -qxF 'export GOPATH=$HOME/go' ~/.zshrc || echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+grep -qxF 'export PATH=$PATH:$GOPATH/bin' ~/.zshrc || echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
+```
+
+Atualizar arquivo de configuração .zshrc
+
+```bash
+source ~/.zshrc
+```
+
+Verificar versão
+
+```bash
+go version
+```
